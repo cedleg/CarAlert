@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatEditText;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -22,8 +23,25 @@ public class MainActivity extends AppCompatActivity {
 
         PermissionRunTime perms = new PermissionRunTime(this);
         perms.checkAndRequestPermissions();
-
         editPI = findViewById(R.id.editPI);
+
+        if (savedInstanceState != null) {
+            if (savedInstanceState.containsKey("ocr_value"))
+                editPI.setText(savedInstanceState.getString("ocr_value"));
+            Log.e("OCR BUNDLE CREATE", savedInstanceState.getString("ocr_value"));
+        }
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (getIntent().getExtras() != null) {
+            if (getIntent().getExtras().containsKey("ocr_value"))
+                editPI.setText(getIntent().getExtras().getString("ocr_value"));
+        }
+
     }
 
     public void btnCompte(View v){
@@ -31,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnPhotoPI(View v){
-
+        startActivity(new Intent(this, OcrActivity.class));
     }
 
     public void btnAlert(View v){
