@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/layoutPI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTitleCompte"
+        android:padding="20dp"
+        android:orientation="vertical">
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tvPI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Plaque d'immatriculation:" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvPI"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <android.support.v7.widget.AppCompatImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="?android:borderlessButtonStyle"
+                android:tint="@android:color/holo_blue_dark"
+                android:src="@mipmap/ic_cam"
+                android:onClick="btnPhotoPI"/>
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/editPI"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="AC861AG"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutImgButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_below="@+id/layoutPI">
+        <android.support.v7.widget.AppCompatImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:borderlessButtonStyle"
+            android:src="@mipmap/ic_phone"
+            android:tint="@android:color/holo_red_light"
+            android:onClick="btnAlert"/>
+        <android.support.v7.widget.AppCompatImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:borderlessButtonStyle"
+            android:src="@mipmap/ic_megaphone"
+            android:tint="@android:color/holo_red_light"
+            android:onClick="btnAlertAll"/>
+    </LinearLayout>
+
+    <android.support.v7.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:background="@drawable/button_border"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:padding="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/btn_compte"
+        android:onClick="btnCompte"/>
+
+</RelativeLayout>
