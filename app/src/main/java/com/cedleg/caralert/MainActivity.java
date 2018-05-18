@@ -1,8 +1,8 @@
 package com.cedleg.caralert;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatEditText;
 import android.view.View;
 import android.widget.Toast;
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, result,Toast.LENGTH_LONG).show();
                 }
                 else{
-                    Toast.makeText(MainActivity.this, "Failed result",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, R.string.wrong_format, Toast.LENGTH_SHORT).show();
                 }
             }
         };
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             HttpJsonParser client = new HttpJsonParser(this, url, postTaskListener);
             client.execute();
         } else {
-            Toast.makeText(MainActivity.this, "Incorrect immatriculation format\nXX000XX",Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, R.string.wrong_immatriculation, Toast.LENGTH_SHORT).show();
         }
 
     }

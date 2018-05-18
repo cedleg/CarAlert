@@ -1,23 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tvTitleAlert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="@string/title_alert"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large" />
+
     <LinearLayout
         android:id="@+id/layoutPI"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvTitleCompte"
+        android:layout_below="@+id/tvTitleAlert"
         android:padding="20dp"
         android:orientation="vertical">
+
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/tvPI"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Plaque d'immatriculation:" />
+            android:text="@string/immatriculation" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

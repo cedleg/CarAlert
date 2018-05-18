@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">CarAlert</string>
     <string name="btn_compte">Mon compte</string>
+
+    <string name="failed_result">Failed result</string>
+    <string name="wrong_format">Incorrect format data</string>
+    <string name="wrong_immatriculation">Incorrect immatriculation format XX000XX</string>
+    <string name="wrong_phonenumber">incorrect phone number format 0600000000 or 0700000000</string>
+    <string name="account">Account</string>
+    <string name="immatriculation">Immatriculation:</string>
+    <string name="title_alert">Alert</string>
 </resources>

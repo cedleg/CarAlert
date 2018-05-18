@@ -41,7 +41,6 @@ public class CompteActivity extends AppCompatActivity {
 
     public void btnCompteSearch(View v){
 
-        Tools tool = new Tools();
         Tools.hideKeyboard(CompteActivity.this);
 
         final String url = URL_GET + edPhone.getText().toString();
@@ -66,10 +65,9 @@ public class CompteActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     }
-
                 }
                 else{
-                    Toast.makeText(CompteActivity.this, "Failed result",Toast.LENGTH_LONG).show();
+                    Toast.makeText(CompteActivity.this, R.string.failed_result, Toast.LENGTH_LONG).show();
                 }
             }
         };
@@ -78,7 +76,7 @@ public class CompteActivity extends AppCompatActivity {
             HttpJsonParser client = new HttpJsonParser(this, url, postTaskListener);
             client.execute();
         } else {
-            Toast.makeText(this, "incorrect phone number format\n0600000000 or 0700000000", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.wrong_phonenumber, Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -105,22 +103,6 @@ public class CompteActivity extends AppCompatActivity {
             jsonArray.put(jsonPost);
         }
 
-        //Log.e("TAG POST JSON", jsonArray.toString());
-        //String jsonBody = jsonArray.toString();
-
-        /*
-        JSONObject jsonPost2 = new JSONObject();
-        try {
-            jsonPost2.put("numero", "06456789");
-            jsonPost2.put("plaque", "XX6754TT");
-            jsonPost2.put("latitude", "");
-            jsonPost2.put("longitude", "");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        String jsonBody = jsonPost2.toString();
-        */
-
         String jsonBody = jsonArray.toString();
         String url = URL_SAVE + edPhone.getText().toString();
         //String url = URL_SAVE + "0";
@@ -128,7 +110,7 @@ public class CompteActivity extends AppCompatActivity {
             HttpJsonParser client = new HttpJsonParser(this, url, "POST", jsonBody);
             client.execute();
         }else{
-            Toast.makeText(this, "incorrect phone number format\n0600000000 or 0700000000", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.wrong_phonenumber, Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -208,7 +190,7 @@ public class CompteActivity extends AppCompatActivity {
     private void postParkedPoints(String immatriculation, String latitude, String longitude){
 
         if(!isCorrectData(immatriculation, latitude, longitude)){
-            Toast.makeText(this, "incorrect format data", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.wrong_format, Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -220,16 +202,14 @@ public class CompteActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        //Log.e("TAG POST PARK", jsonPost.toString());
         String jsonBody = jsonPost.toString();
 
         String url = URL_PARK + immatriculation;
-        //Log.e("URL PARK", url);
         HttpJsonParser client = new HttpJsonParser(this, url, "POST", jsonBody);
         client.execute();
     }
 
-    public boolean isCorrectData(String immat, String latitude, String longitude){
-            return Tools.isCorrectImmatriculation(immat) && Tools.isCorrectGpsCoordinates(latitude, longitude);
+    public boolean isCorrectData(String immatriculation, String latitude, String longitude) {
+        return Tools.isCorrectImmatriculation(immatriculation) && Tools.isCorrectGpsCoordinates(latitude, longitude);
     }
 }
