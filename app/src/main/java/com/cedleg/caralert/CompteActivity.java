@@ -1,12 +1,11 @@
 package com.cedleg.caralert;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatImageButton;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
@@ -43,7 +42,7 @@ public class CompteActivity extends AppCompatActivity {
     public void btnCompteSearch(View v){
 
         Tools tool = new Tools();
-        tool.hideKeyboard(CompteActivity.this);
+        Tools.hideKeyboard(CompteActivity.this);
 
         final String url = URL_GET + edPhone.getText().toString();
 
