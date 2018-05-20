@@ -3,6 +3,9 @@
  
 # Config Crashlitics, depends du poste de travail
 com_crashlytics_export_strings.xml
+
+#local git repo
+.git/
  
 # configuration locale (sdk path, etc)
 local.properties

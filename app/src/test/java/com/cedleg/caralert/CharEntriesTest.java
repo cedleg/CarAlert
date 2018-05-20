@@ -6,34 +6,36 @@ import org.junit.Test;
 import java.util.regex.Pattern;
 
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertTrue;
 
 public class CharEntriesTest {
 
     @Test
     public void isCorrectNumberPhone(){
         String str = "0600000001";
-        assertEquals(true, Pattern.matches("^[0]{1}[6-7]{1}[0-9]{8}$", str));
+        assertEquals(true, Pattern.matches("^[0][6-7][0-9]{8}$", str));
+        assertTrue(str.length() == 10);
 
         String str1 = "0700000001";
         assertEquals(true, Pattern.matches("^[0]{1}[6-7]{1}[0-9]{8}$", str1));
 
         String str2 = "0800000001";
-        assertEquals(false, Pattern.matches("^[0]{1}[6-7]{1}[0-9]{8}$", str2));
+        assertEquals(false, Pattern.matches("^[0][6-7][0-9]{8}$", str2));
 
         String str3 = "800000001";
-        assertEquals(false, Pattern.matches("^[0]{1}[6-7]{1}[0-9]{8}$", str3));
+        assertEquals(false, Pattern.matches("^[0][6-7][0-9]{8}$", str3));
 
         String str4 = "6600000001";
-        assertEquals(false, Pattern.matches("^[0]{1}[6-7]{1}[0-9]{8}$", str4));
+        assertEquals(false, Pattern.matches("^[0][6-7][0-9]{8}$", str4));
 
         String str5 = "060000";
-        assertEquals(false, Pattern.matches("^[0]{1}[6-7]{1}[0-9]{8}$", str5));
+        assertEquals(false, Pattern.matches("^[0][6-7][0-9]{8}$", str5));
 
         String str6 = "0600ABC001";
-        assertEquals(false, Pattern.matches("^[0]{1}[6-7]{1}[0-9]{8}$", str6));
+        assertEquals(false, Pattern.matches("^[0][6-7][0-9]{8}$", str6));
 
         String str7 = "000000000";
-        assertEquals(false, Pattern.matches("^[0]{1}[6-7]{1}[0-9]{8}$", str7));
+        assertEquals(false, Pattern.matches("^[0][6-7][0-9]{8}$", str7));
     }
 
     @Test

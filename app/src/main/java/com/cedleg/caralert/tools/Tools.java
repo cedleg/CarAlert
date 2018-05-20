@@ -33,7 +33,7 @@ public class Tools {
      * @return
      */
     public static boolean isCorrectPhoneNumber(String frenchPhoneNumber){
-        return frenchPhoneNumber.matches("^[0]{1}[6-7]{1}[0-9]{8}$");
+        return frenchPhoneNumber.matches("^[0][6-7][0-9]{8}$");
     }
 
     /**

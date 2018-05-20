@@ -23,7 +23,8 @@ import java.util.List;
 
 public class CompteActivity extends AppCompatActivity {
 
-    public static final String URL_GET = "http://www.declique.net/cours/caralert/index.php/load/"; // + phone number
+    public static final String URL_GET = "http://www.declique.net/cours/caralert/index.php/get/";
+    public static final String URL_LOAD = "http://www.declique.net/cours/caralert/index.php/load/"; // + phone number
     public static final String URL_GET_ALL = "http://www.declique.net/cours/caralert/index.php/list/all";
     public static final String URL_SAVE = "http://www.declique.net/cours/caralert/index.php/save/"; // + phone number
     public static final String URL_PARK = "http://www.declique.net/cours/caralert/index.php/park/"; // + matricul number
@@ -43,7 +44,7 @@ public class CompteActivity extends AppCompatActivity {
 
         Tools.hideKeyboard(CompteActivity.this);
 
-        final String url = URL_GET + edPhone.getText().toString();
+        final String url = URL_LOAD + edPhone.getText().toString();
 
         HttpJsonParser.PostTaskListener<String> postTaskListener = new HttpJsonParser.PostTaskListener<String>() {
             @Override
